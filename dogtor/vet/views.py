@@ -49,18 +49,28 @@ class OwnerDetail(DetailView) :
     template_name = 'vet/owners/detail.html'
     context_object_name = 'owner'
 
-class Pets(View) :
-    def get(self, request) :
-        pets = Pet.objects.all()
-        context = {'pets': pets}
+# class Pets(View) :
+#     def get(self, request) :
+#         pets = Pet.objects.all()
+#         context = {'pets': pets}
 
-        template = loader.get_template('vet/pets/list.html')
-        return HttpResponse(template.render(context, request))
+#         template = loader.get_template('vet/pets/list.html')
+#         return HttpResponse(template.render(context, request))
 
-class PetDetail(View) :
-    def get(self, request, pk) :
-        pet = Pet.objects.get(id=pk)
-        context = {'pet': pet}
+# class PetDetail(View) :
+#     def get(self, request, pk) :
+#         pet = Pet.objects.get(id=pk)
+#         context = {'pet': pet}
         
-        template = loader.get_template('vet/pets/detail.html')
-        return HttpResponse(template.render(context, request))
+#         template = loader.get_template('vet/pets/detail.html')
+#         return HttpResponse(template.render(context, request))
+
+class Pets(ListView) :
+    model = Pet
+    template_name = 'vet/pets/list.html'
+    context_object_name = 'pets'
+
+class PetDetail(DetailView) :
+    model = Pet
+    template_name = 'vet/pets/detail.html'
+    context_object_name = 'pet'
