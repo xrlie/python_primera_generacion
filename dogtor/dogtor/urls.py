@@ -19,5 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Custom urls
-    path('vet/', include('vet.urls'))
+    # path('vet/', include('vet.urls'))
+    # Reverse url (con include)       incluimos una tupla 
+    path('vet/', include(('vet.urls', 'vet'))),
 ]
