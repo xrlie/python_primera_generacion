@@ -3,9 +3,12 @@ from django.http import HttpResponse
 from django.template import loader
 from django.views.generic import View   # gives behavior for class Test
 # from django.views.generic import TemplateView
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic.edit import FormView
+from django.urls import reverse_lazy
 
 from .models import PetOwner, Pet
+from .forms import OwnerForm
 
 # Create your views here.
 def list_pet_owners(request) :
@@ -48,6 +51,12 @@ class OwnerDetail(DetailView) :
     model = PetOwner
     template_name = 'vet/owners/detail.html'
     context_object_name = 'owner'
+
+class OwnersCreate(CreateView) :
+    model = PetOwner
+    template_name = 'vet/owners/create.html'
+    form_class = OwnerForm
+    success_url = reverse_lazy('vet:owners_list')
 
 # class Pets(View) :
 #     def get(self, request) :
