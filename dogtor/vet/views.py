@@ -8,7 +8,7 @@ from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 
 from .models import PetOwner, Pet
-from .forms import OwnerForm
+from .forms import OwnerForm, PetForm
 
 # Create your views here.
 def list_pet_owners(request) :
@@ -83,3 +83,10 @@ class PetDetail(DetailView) :
     model = Pet
     template_name = 'vet/pets/detail.html'
     context_object_name = 'pet'
+
+class PetsCreate(CreateView) :
+    model = Pet
+    template_name = 'vet/pets/create.html'
+    # form_class = PetForm
+    fields = ['name', 'type', 'owner']
+    success_url = reverse_lazy('vet:pets_list')

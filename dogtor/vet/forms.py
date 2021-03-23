@@ -1,5 +1,5 @@
 from django import forms
-from .models import PetOwner
+from .models import PetOwner, Pet
 
 # Create forms
 class OwnerForm(forms.ModelForm) :
@@ -9,3 +9,9 @@ class OwnerForm(forms.ModelForm) :
         widgets = {
             'email' : forms.EmailInput()
         }
+
+class PetForm(forms.ModelForm) :
+    class Meta :
+        model = Pet
+        fields = '__all__'
+        widgets = {'email':forms.EmailInput()}
