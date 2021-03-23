@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.views.generic import View   # gives behavior for class Test
 # from django.views.generic import TemplateView
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 
@@ -58,6 +58,18 @@ class OwnersCreate(CreateView) :
     form_class = OwnerForm
     success_url = reverse_lazy('vet:owners_list')
 
+    def get_context_data(self, **kwargs) :
+        context = super().get_context_data(**kwargs)
+        context['owners'] = PetOwner.objects.all().order_by('created_at')
+        print(context)
+        return context
+
+class OwnersUpdate(UpdateView) :
+    model = PetOwner
+    form_class = OwnerForm
+    template_name = 'vet/owners/update.html'
+    success_url = reverse_lazy('vet:owners_list')
+
 # class Pets(View) :
 #     def get(self, request) :
 #         pets = Pet.objects.all()
@@ -90,3 +102,9 @@ class PetsCreate(CreateView) :
     # form_class = PetForm
     fields = ['name', 'type', 'owner']
     success_url = reverse_lazy('vet:pets_list')
+
+class PetsUpdate(UpdateView) :
+    model = Pet
+    form_class = PetForm
+    template_name = 'vet/pets/update.html'
+    success_url = reverse_lazy('vet:owners_list')

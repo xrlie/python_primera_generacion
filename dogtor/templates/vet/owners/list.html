@@ -24,6 +24,11 @@
         </td>
         <td>{{ owner.first_name }}</td>
         <td>{{ owner.last_name }}</td>
+        <td>
+            <a href="{% url 'vet:owner_update' pk=owner.id %}">
+                Update
+            </a>
+        </td>
     </tr>
     {% endfor %}
 </table>

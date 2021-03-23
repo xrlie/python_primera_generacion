@@ -24,6 +24,11 @@
         </td>
         <td>{{ pet.name }}</td>
         <td>{{ pet.type }}</td>
+        <td>
+            <a href="{% url 'vet:pet_update' pk=pet.id %}">
+                Update
+            </a>
+        </td>
     </tr>
     {% endfor %}
 </table>
