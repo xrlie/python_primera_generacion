@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Custom apps
     'vet',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
