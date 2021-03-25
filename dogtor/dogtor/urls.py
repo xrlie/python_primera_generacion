@@ -24,5 +24,8 @@ urlpatterns = [
     # Reverse url (con include)       incluimos una tupla 
     path('vet/', include(('vet.urls', 'vet'))),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home')
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+
+    # API        tupla =    urls set, alias
+    path('api/', include(('api.urls', 'api'))),
 ]
