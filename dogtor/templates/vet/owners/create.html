@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}
 <title>Create Owner</title>
 {% endblock title %}
@@ -12,8 +14,8 @@
 
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Crear dueño</button>
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-outline-primary">Crear dueño</button>
 </form>
 
 {% endblock content %}

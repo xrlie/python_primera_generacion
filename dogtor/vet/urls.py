@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import OwnersCreate, OwnersUpdate, OwnersList, OwnerDetail    # list_pet_owners, Test
-from .views import PetsCreate, PetsUpdate, Pets, PetDetail
+from .views import PetsCreate, PetsUpdate, Pets, PetDetail, PetDateCreate
 
 urlpatterns = [
     # Reverse URL's incluimos name=
@@ -13,5 +13,6 @@ urlpatterns = [
     path('pets/<int:pk>/', PetDetail.as_view(), name='pet_detail'),
     path('pets/add/', PetsCreate.as_view(), name='pet_create'),
     path('pets/<int:pk>/update/', PetsUpdate.as_view(), name='pet_update'),
+    path('dates/add/', PetDateCreate.as_view(), name='date_create'),
     # path('test/', Test.as_view()),
 ]

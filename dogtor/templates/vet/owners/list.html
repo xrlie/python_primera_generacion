@@ -14,7 +14,9 @@
         <th>ID</th>
         <th>First Name</th>
         <th>Lastname</th>
-        <th></th>
+        <th>
+            <a class="btn btn-outline-primary" href="{% url 'vet:owner_create' %}">Agregar Nuevo</a>
+        </th>
     </tr>
     {% for owner in owners %}
     <tr>

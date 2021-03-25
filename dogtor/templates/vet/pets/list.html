@@ -14,7 +14,9 @@
         <th>ID</th>
         <th>Name</th>
         <th>Type</th>
-        <th></th>
+        <th>
+            <a class="btn btn-outline-primary" href="{% url 'vet:pet_create' %}">Agregar Nuevo</a>
+        </th>
     </tr>
     {% for pet in pets %}
     <tr>
