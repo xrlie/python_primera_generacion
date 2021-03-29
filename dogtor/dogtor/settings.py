@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     # Installed apps
     'crispy_forms',
     'rest_framework',
+    # GEO app
+    # 'django.contrib.gis',
+    # 'rest_framework_gis',
 ]
 
 MIDDLEWARE = [
@@ -89,7 +92,13 @@ DATABASES = {
         'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': '5432',
-    }
+    },
+    # 'geo': {
+    #     'ENGINE': 'django.contrib.gis.db.backends.postgis',
+    #     'NAME': 'geodjango',
+    #     'USER': 'admin',
+    #     'PASSWORD': '123456',
+    # }
 }
 
 
