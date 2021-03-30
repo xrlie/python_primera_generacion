@@ -30,6 +30,8 @@ from .views import (
     RetrievePetDatesAPIView,
     RetrieveBranchOfficesDatesAPIView,
     RetrieveOwnerPetsDatesAPIView,
+    ## Users
+    CreateUsersAPIView,
 ) 
 # from rest_framework import routers
 # from .views import OwnersViewSet, PetsViewSet, PetDatesViewSet
@@ -64,7 +66,9 @@ urlpatterns = [
     path('pets/<int:pk>/owner/', RetrievePetOwnerAPIView.as_view(), name='retrieve-pet-owner'),
     path('pets/<int:pk>/dates/', RetrievePetDatesAPIView.as_view(), name='retrieve-pet-dates'),
     path('branchoffices/<int:pk>/dates/', RetrieveBranchOfficesDatesAPIView.as_view(), name='retrieve-branchoffice-dates'),
-    path('owners/<int:pk>/pets/dates/', RetrieveOwnerPetsDatesAPIView.as_view(), name='retrieve-owner-pets-dates')
+    path('owners/<int:pk>/pets/dates/', RetrieveOwnerPetsDatesAPIView.as_view(), name='retrieve-owner-pets-dates'),
+    # Users
+    path('users/create/', CreateUsersAPIView.as_view(), name='create-users')
 ]
 
 

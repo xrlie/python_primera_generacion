@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 from rest_framework import generics # viewsets
 
@@ -21,6 +22,8 @@ from .serializers import (
   PetDatesSerializer,
   BranchOfficeDatesSerializer,
   OwnerPetsDatesSerializer,
+  #Users
+  UsersSerializer
 )
 # from .serializers import OwnersSerializer, PetsSerializer
 # from .serializers import PetDatesSerializer
@@ -133,7 +136,10 @@ class RetrieveOwnerPetsDatesAPIView(generics.RetrieveAPIView) :
   queryset = PetOwner.objects.all()
   serializer_class = OwnerPetsDatesSerializer
 
-
+## Users
+class CreateUsersAPIView(generics.CreateAPIView) :
+  queryset = User.objects.all()
+  serializer_class = UsersSerializer
 
 
 
