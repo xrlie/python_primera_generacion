@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # Installed apps
     'crispy_forms',
     'rest_framework',
+    'rest_framework.authtoken',
     # GEO app
     # 'django.contrib.gis',
     # 'rest_framework_gis',
@@ -57,6 +58,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.TokenAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES" :("rest_framework.permissions.IsAuthenticated",),
+}
 
 ROOT_URLCONF = 'dogtor.urls'
 
