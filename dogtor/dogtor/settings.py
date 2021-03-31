@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
     # GEO app
     # 'django.contrib.gis',
     # 'rest_framework_gis',
