@@ -25,7 +25,8 @@ SECRET_KEY = 'traz+2*zezdii$=r7atij%yhipaw1agvdo18rk42ty$l3ld!!('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']           # The * lets any webpage request
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
